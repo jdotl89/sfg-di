@@ -1,13 +1,13 @@
-package edu.greenriver.sdev.sfgdi.controllers;
+package edu.greenriver.sdev.sfgdi.services;
 
 import edu.greenriver.sdev.sfgdi.services.GreetingService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GreetingServiceImp implements GreetingService {
+public class ConstructorGreetingService implements GreetingService {
 
     @Override
     public String sayGreeting() {
-        return "Hello World!";
+        return "Hello World! - Constructor";
     }
 }

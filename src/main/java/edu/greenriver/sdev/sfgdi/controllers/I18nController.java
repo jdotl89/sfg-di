@@ -1,25 +1,20 @@
 package edu.greenriver.sdev.sfgdi.controllers;
 
 import edu.greenriver.sdev.sfgdi.services.GreetingService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class SetterInjectedController {
+public class I18nController {
 
-    private GreetingService greetingService;
+    private final GreetingService greetingService;
 
-    @Qualifier("setterInjectedGreetingService")
-    @Autowired
-    public void setGreetingService(GreetingService greetingService) {
-
+    private I18nController(@Qualifier("i18nService")GreetingService greetingService) {
         this.greetingService = greetingService;
-
     }
 
-    public String getGreeting() {
-
+    public String sayHello() {
         return greetingService.sayGreeting();
     }
+
 }
